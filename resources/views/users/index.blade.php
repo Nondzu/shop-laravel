@@ -34,25 +34,10 @@
 
 <script type="text/javascript">
     @section('javascript')
-        $(function() {
-            $('.delete').click(function() {
-                $.ajax({
-                        method: "DELETE",
-                        url: "http://localhost/users/" + $(this).data("id")
-                        
-                    })
-                    .done(function(response) {
-                        window.location.reload();
-                        alert("SUCCESS");
-
-                    })
-                    .fail(function (response) {
-                        alert("ERROR");
-                        
-                    });
-                // console.log($(this).data("id"));
-            });
-            // console.log($('.delete'));
-        });
+    const deleteUrl="{{ url('users') }}/";
     @endsection
 </script>
+
+@section('js-files')
+    <script src="{{ asset('js/delete.js') }}"></script>
+@endsection
