@@ -62,6 +62,18 @@ services:
             retries: 3
             timeout: 5s
         hostname: mysql
+
+networks:
+    sail:
+        driver: bridge
+volumes:
+    sail-mysql:
+        driver: local
+    sail-redis:
+        driver: local
+    sail-meilisearch:
+        driver: local
+
     # redis:
     #     image: 'redis:alpine'
     #     ports:
@@ -99,13 +111,3 @@ services:
     #         - '/dev/shm:/dev/shm'
     #     networks:
     #         - sail
-networks:
-    sail:
-        driver: bridge
-volumes:
-    sail-mysql:
-        driver: local
-    sail-redis:
-        driver: local
-    sail-meilisearch:
-        driver: local

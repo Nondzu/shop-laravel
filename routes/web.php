@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\HelloWordlController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\HelloWordlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,8 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome2');
-});
+//home
+Route::get('/', [WelcomeController::class, 'index']);
 
 // products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('auth');
