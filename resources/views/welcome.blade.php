@@ -47,8 +47,8 @@
                                 <div class="card h-100 border-0">
                                     <div class="card-img-top">
                                         @if (!is_null($product->image_path))
-                                            <img src="{{asset('storage/'. $product->image_path )}}" class="img-fluid mx-auto d-block"
-                                                alt="Product image">
+                                            <img src="{{ asset('storage/' . $product->image_path) }}"
+                                                class="img-fluid mx-auto d-block" alt="Product image">
                                         @else
                                             <img src="https://via.placeholder.com/240x240/5fa9f8/efefef"
                                                 class="img-fluid mx-auto d-block" alt="Product image">
@@ -94,7 +94,8 @@
                 </div>
             </div>
             <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
-                <h3 class="mt-0 mb-5">Showing <span class="text-primary">{{count($products)}}</span> Products</h3>
+                <h3 class="mt-0 mb-5">Showing <span class="text-primary">{{ count($products) }}</span> Products
+                </h3>
                 <h6 class="text-uppercase font-weight-bold mb-3">Categories</h6>
                 <div class="mt-2 mb-2 pl-2">
                     <div class="custom-control custom-checkbox">
