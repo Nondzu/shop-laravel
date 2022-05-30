@@ -34,7 +34,7 @@
 
 <script type="text/javascript">
     @section('javascript')
-    const deleteUrl="{{ url('users') }}/";
+        const deleteUrl = "{{ url('users') }}/";
     @endsection
 </script>
 
