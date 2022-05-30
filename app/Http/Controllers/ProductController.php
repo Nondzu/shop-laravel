@@ -82,7 +82,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  StoreProductRequest  $request
+     * @param  UpsertProductRequest  $request
      * @param  Product  $product
      * @return RedirectResponse
      */
