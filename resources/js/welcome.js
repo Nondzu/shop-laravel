@@ -44,10 +44,6 @@ $(function () {
 
                 })
             })
-            .fail(function (data) {
-                alert('ERROR');
-
-            });
     }
 
     function getImage(product) {
