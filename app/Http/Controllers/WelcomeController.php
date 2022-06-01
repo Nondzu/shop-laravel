@@ -21,10 +21,12 @@ class WelcomeController extends Controller
     public function index(Request $request): View|JsonResponse
     {
         $filters = $request->query('filter');
+        $paginate = $request->query('paginate') ?? 5;
+        
         $query = Product::query();
+        $query->paginate($paginate);
 
         if (!is_null($filters)) {
-
 
             if (array_key_exists('categories', $filters)) {
                 $query = $query->whereIn('category_id', $filters['categories']);
@@ -35,7 +37,7 @@ class WelcomeController extends Controller
             }
 
             if (!is_null($filters['price_max'])) {
-                $query = $query->where('price', '>=', $filters['price_max']);
+                $query = $query->where('price', '<=', $filters['price_max']);
             }
 
             return response()->json([
@@ -44,17 +46,9 @@ class WelcomeController extends Controller
         }
 
         return view("welcome", [
-            'products' => $query->paginate(10),
-            'categories' => ProductCategory::orderBy('name', 'ASC')->get()
+            'products' => $query->get(),
+            'categories' => ProductCategory::orderBy('name', 'ASC')->get(),
+            'defaultImage' => 'https://via.placeholder.com/240x240/5fa9f8/efefef'
         ]);
     }
-
-    // public function view(): View
-    // {
-    //     return view("welcome", [
-    //         'products' => Product::paginate(10),
-    //         'categories' => ProductCategory::orderBy('name','ASC')->get()
-    //     ]);
-    // }
-
 }
