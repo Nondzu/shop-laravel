@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h1>{{__('shop.product.index_title')}}</h1>
+                <h1>{{ __('shop.product.index_title') }}</h1>
             </div>
             <div class="col-6">
                 <a style="float: right;" href="{{ route('products.create') }}">
-                    <button type="button" class="btn btn-primary ">{{__('shop.button.add')}}</button>
+                    <button type="button" class="btn btn-primary ">{{ __('shop.button.add') }}</button>
                 </a>
             </div>
         </div>
@@ -19,11 +19,12 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">{{__('shop.product.fields.name')}}</th>
-                        <th scope="col">{{__('shop.product.fields.description')}}</th>
-                        <th scope="col">{{__('shop.product.fields.amount')}}</th>
-                        <th scope="col">{{__('shop.product.fields.price')}}</th>
-                        <th scope="col">{{__('shop.product.columns.actions')}}</th>
+                        <th scope="col">{{ __('shop.product.fields.name') }}</th>
+                        <th scope="col">{{ __('shop.product.fields.description') }}</th>
+                        <th scope="col">{{ __('shop.product.fields.amount') }}</th>
+                        <th scope="col">{{ __('shop.product.fields.price') }}</th>
+                        <th scope="col">{{ __('shop.product.fields.category') }}</th>
+                        <th scope="col">{{ __('shop.columns.actions') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,11 @@
                             <td>{{ $product->description }}</td>
                             <td>{{ $product->amount }}</td>
                             <td>{{ $product->price }}</td>
+                            <td>
+                                @if ($product->hasCategory())
+                                    {{ $product->category->name }}
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('products.show', ['product' => $product->id]) }}">
                                     <button class="btn btn-primary btn-sm">P</button>

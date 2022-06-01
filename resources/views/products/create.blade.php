@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{__('shop.product.add_title')}}</div>
+                    <div class="card-header">{{ __('shop.product.add_title') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
@@ -27,7 +27,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">{{__('shop.product.fields.description')}}</label>
+                                <label for="description"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.description') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror"
@@ -42,7 +43,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="amount" class="col-md-4 col-form-label text-md-end">{{__('shop.product.fields.amount')}}</label>
+                                <label for="amount"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.amount') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="amount" type="number" min="0"
@@ -58,7 +60,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="price" class="col-md-4 col-form-label text-md-end">{{__('shop.product.fields.price')}}</label>
+                                <label for="price"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.price') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="price" type="number" step="0.01" min="0"
@@ -74,7 +77,30 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="image" class="col-md-4 col-form-label text-md-end">{{__('shop.product.fields.image')}}</label>
+                                <label for="category"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.category') }}</label>
+
+                                <div class="col-md-6">
+                                    <select id="category_id" class="form-control @error('category_id') is-invalid @enderror"
+                                        name="category_id">
+                                        <option value="">Brak</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">
+                                                {{ $category->id . '. ' . $category->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('category_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.image') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="image" type="file" class="form-control  @error('image') is-invalid @enderror"
@@ -90,7 +116,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{__('shop.button.save')}}
+                                        {{ __('shop.button.save') }}
                                     </button>
                                 </div>
                             </div>

@@ -48,6 +48,22 @@
                                     value="{{ $product->price }}" disabled>
                             </div>
                         </div>
+
+                        
+                        <div class="row mb-3">
+                            <label for="category"
+                                class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.category') }}</label>
+
+                            <div class="col-md-6">
+                                <label id="category_id" class="form-control" name="category_id">
+                                    @if ($product->hasCategory())
+                                    <option value="">{{$product->category->name}}</option>                                        
+                                    @else
+                                    <option value="">Brak</option>    
+                                    @endif
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
