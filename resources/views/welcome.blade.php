@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
+            <form class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
                 <h3 class="mt-0 mb-5">{{ __('shop.welcome.products') }} <span
                         class="text-primary">{{ count($products) }}</span>
                 </h3>
@@ -101,7 +101,8 @@
                 @foreach ($categories as $category)
                     <div class="mt-2 mb-2 pl-2">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="category-{{ $category->id }}">
+                            <input type="checkbox" class="custom-control-input" name="filter[categories][]" id="category-{{ $category->id }}"
+                                value="{{ $category->id }}">
                             <label class="custom-control-label"
                                 for="category-{{ $category->id }}">{{ $category->name }}</label>
                         </div>
@@ -111,15 +112,20 @@
                 <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
                 <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">{{ __('shop.welcome.price') }}</h6>
                 <div class="price-filter-control">
-                    <input type="number" class="form-control w-50 pull-left mb-2" value="50" id="price-min-control">
-                    <input type="number" class="form-control w-50 pull-right" value="150" id="price-max-control">
+                    <input type="number" class="form-control w-50 pull-left mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
+                    <input type="number" class="form-control w-50 pull-right" placeholder="150"  name="filter[price_max]" id="price-max-control">
                 </div>
                 <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200"
                     data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
                 <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                <a href="#" class="btn btn-lg btn-block btn-primary mt-5">{{ __('shop.welcome.filter') }}</a>
-            </div>
+                <a href="#" class="btn btn-lg btn-block btn-primary mt-5"
+                    id="filter-button">{{ __('shop.welcome.filter') }}</a>
+            </form>
 
         </div>
     </div>
+@endsection
+
+@section('js-files')
+    <script src="{{ asset('js/welcome.js') }}"></script>
 @endsection

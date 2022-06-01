@@ -18,12 +18,43 @@ class WelcomeController extends Controller
      *
      * @return View
      */
-    public function index(): View
+    public function index(Request $request): View|JsonResponse
     {
+        $filters = $request->query('filter');
+        $query = Product::query();
+
+        if (!is_null($filters)) {
+
+
+            if (array_key_exists('categories', $filters)) {
+                $query = $query->whereIn('category_id', $filters['categories']);
+            }
+
+            if (!is_null($filters['price_min'])) {
+                $query = $query->where('price', '>=', $filters['price_min']);
+            }
+
+            if (!is_null($filters['price_max'])) {
+                $query = $query->where('price', '>=', $filters['price_max']);
+            }
+
+            return response()->json([
+                'data' => $query->get()
+            ]);
+        }
+
         return view("welcome", [
-            'products' => Product::paginate(10),
-            'categories' => ProductCategory::orderBy('name','ASC')->get()
+            'products' => $query->paginate(10),
+            'categories' => ProductCategory::orderBy('name', 'ASC')->get()
         ]);
     }
+
+    // public function view(): View
+    // {
+    //     return view("welcome", [
+    //         'products' => Product::paginate(10),
+    //         'categories' => ProductCategory::orderBy('name','ASC')->get()
+    //     ]);
+    // }
 
 }
