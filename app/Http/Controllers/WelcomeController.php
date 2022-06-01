@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
@@ -21,7 +22,7 @@ class WelcomeController extends Controller
     {
         return view("welcome", [
             'products' => Product::paginate(10),
-            'text' => "moj tekst"
+            'categories' => ProductCategory::orderBy('name','ASC')->get()
         ]);
     }
 
