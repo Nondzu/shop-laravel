@@ -9,7 +9,7 @@
                         <div class="col-12">
                             <div class="dropdown text-md-left text-left float-md-left mb-3 mt-3 mt-md-0 mb-md-0">
                                 <label class="mr-2">Sort by:</label>
-                                <a class="btn btn-lg btn-light dropdown-toggle"  data-bs-toggle="dropdown" role="button"
+                                <a class="btn btn-lg btn-light dropdown-toggle" data-bs-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="false">Relevance <span
                                         class="caret"></span></a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" x-placement="bottom-start"
@@ -19,18 +19,21 @@
                                     <a class="dropdown-item" href="#">Price Ascending</a>
                                     <a class="dropdown-item" href="#">Best Selling</a>
                                 </div>
-                            </div>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-left"></span>
-                                </button>
-                                <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span>
-                                </button>
+
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-lg btn-light"> <span
+                                            class="fa fa-arrow-left"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-lg btn-light"> <span
+                                            class="fa fa-arrow-right"></span>
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="dropdown float-right">
-                                <a class="btn btn-lg btn-light dropdown-toggle products-actual-count" data-bs-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">5<span
-                                        class="caret"></span></a>
+                                <a style="float: right;" class="btn btn-lg btn-light dropdown-toggle products-actual-count"
+                                    data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">5<span class="caret"></span></a>
                                 <div class="dropdown-menu dropdown-menu-right products-count"
                                     aria-labelledby="navbarDropdown" x-placement="bottom-end"
                                     style="will-change: transform; position: absolute; transform: translate3d(120px, 48px, 0px); top: 0px; left: 0px;">
@@ -80,9 +83,9 @@
                                 </button>
                             </div>
                             <div class="dropdown float-md-right">
-                                <a class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-bs-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">5<span
-                                        class="caret"></span></a>
+                                <a class="btn btn-light btn-lg dropdown-toggle products-actual-count"
+                                    data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+                                    aria-expanded="false">5<span class="caret"></span></a>
                                 <div class="dropdown-menu products-count" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">5</a>
                                     <a class="dropdown-item" href="#">10</a>
@@ -121,8 +124,8 @@
                 <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200"
                     data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
                 <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                <a href="#" class="btn btn-lg btn-block btn-primary mt-5"
-                    id="filter-button">{{ __('shop.welcome.filter') }}</a>
+                <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button"><i
+                        class="fa-solid fa-magnifying-glass"></i> {{ __('shop.welcome.filter') }}</a>
             </form>
 
         </div>

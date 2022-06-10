@@ -3,8 +3,8 @@
         <div class="col-12">
             <div class="alert alert-success">
                 <a style="float: right;" >
-                    <button style="border: 0px; background-color: rgb(82, 255, 82)" class="close" data-bs-dismiss="alert" aria-hidden="true">
-                        &times;
+                    <button style="border: 0px; background-color: transparent" class="close" data-bs-dismiss="alert" >
+                        <i class="fa-regular fa-circle-xmark fa-2x"></i>
                     </button>
                 </a>
                 {{ session('status') }}
