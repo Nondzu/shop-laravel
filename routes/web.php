@@ -19,16 +19,18 @@ use App\Http\Controllers\HelloWordlController;
 */
 //home
 Route::get('/', [WelcomeController::class, 'index']);
-// Route::get('/hello', [HelloWordlController::class, 'show']);
+Route::get('/hello', [HelloWordlController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('products', ProductController::class);
 
-    // users
-    Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
+    Route::middleware(['can:isAdmin'])->group(function () {
+        Route::resource('products', ProductController::class);
 
-    //test
+        // users
+        Route::get('/users/list', [UserController::class, 'index']);
+        Route::delete('/users/{user}', [UserController::class, 'destroy']);
+    });
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
