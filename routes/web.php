@@ -19,7 +19,7 @@ use App\Http\Controllers\HelloWordlController;
 */
 //home
 Route::get('/', [WelcomeController::class, 'index']);
-Route::get('/hello', [HelloWordlController::class, 'show']);
+// Route::get('/hello', [HelloWordlController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('products', ProductController::class);

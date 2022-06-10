@@ -1,0 +1,165 @@
+ ./vendor/bin/sail php artisan config:case
+ ./vendor/bin/sail php artisan config:cache
+ ./vendor/bin/sail php artisan rout:clear
+ ./vendor/bin/sail php artisan rout:cache
+ ./vendor/bin/sail php artisan route:list
+ 
+ ./vendor/bin/sail php artisan config:cache
+ ./vendor/bin/sail php artisan route:cache
+
+ ./vendor/bin/sail up --build // build and run
+
+
+ kamil@lenovo:~/php/example-app$ history | grep sail
+ 1398  sail php --version
+ 1400  ./vendor/bin/sail php --version
+ 1401  ./vendor/bin/sail php artisan migrate
+ 1402  ./vendor/bin/sail php artisan list
+ 1403  ./vendor/bin/sail php artisan make:controller HelloController
+ 1404  ./vendor/bin/sail php artisan make:controller HelloWordlController
+ 1405  ./vendor/bin/sail composer require laravel/ui:^2.4
+ 1408  ./vendor/bin/sail composer require laravel/ui:^2.4
+ 1409  ./vendor/bin/sail composer require laravel/ui:^2.5
+ 1410  ./vendor/bin/sail composer update
+ 1411  ./vendor/bin/sail composer clearcache
+ 1412  ./vendor/bin/sail composer selfupdate
+ 1413  ./vendor/bin/sail composer dumpautoload
+ 1414  ./vendor/bin/sail composer require laravel/ui:^2.5
+ 1415  ./vendor/bin/sail composer require laravel/ui:^2.4
+ 1416  ./vendor/bin/sail composer require laravel/ui:^3.4.6
+ 1417  ./vendor/bin/sail php artisan ui bootstrap --auth
+ 1418  ./vendor/bin/sail php artisan route:list
+ 1419  ./vendor/bin/sail npm install && npm run dev
+ 1424  ./vendor/bin/sail npm install && npm run dev
+ 1425  ./vendor/bin/sail npm install && ./vendor/bin/sail  npm run dev
+ 1426  ./vendor/bin/sail node -v
+ 1427  ./vendor/bin/sail npm  -v
+ 1428  ./vendor/bin/sail npm install && ./vendor/bin/sail  npm run dev
+ 1429  ./vendor/bin/sail php artisan route:list
+ 1430  ./vendor/bin/sail php artisan route:list | grep POST
+ 1433  ./vendor/bin/sail php artisan route:list 
+ 1434  ./vendor/bin/sail php artisan  make:controller UserListController --resource
+ 1435  ./vendor/bin/sail php artisan  make:controller UserController --resource
+ 1444  ./vendor/bin/sail php artisan migrate
+ 1445  ./vendor/bin/sail php artisan make:migration add_phonenumber_and_surname_to_users_table
+ 1446  ./vendor/bin/sail php artisan make:migration add_phone_number_and_surname_to_users_table
+ 1447  ./vendor/bin/sail php artisan migrate
+ 1448  ./vendor/bin/sail php artisan migrate --help
+ 1449  ./vendor/bin/sail php artisan migrate 
+ 1450  ./vendor/bin/sail php artisan migrate down
+ 1451  ./vendor/bin/sail php artisan migrate:rollback
+ 1452  ./vendor/bin/sail php artisan migrate
+ 1453  ./vendor/bin/sail php artisan migrate:rollback
+ 1454  ./vendor/bin/sail php artisan migrate
+ 1456  ./vendor/bin/sail npm run dev
+ 1457  ./vendor/bin/sail npm run watch
+ 1458  ./vendor/bin/sail npm run prod
+ 1459  ./vendor/bin/sail npm run watch
+ 1460  ./vendor/bin/sail npm run watch
+ 1461  ./vendor/bin/sail npm run 
+ 1462  ./vendor/bin/sail npm run dev
+ 1463  ./vendor/bin/sail npm run watch
+ 1464  ./vendor/bin/sail npm install jQuery
+ 1465  ./vendor/bin/sail npm install jquery
+ 1466  ./vendor/bin/sail npm fund
+ 1467  ./vendor/bin/sail npm run watch
+ 1468  ./vendor/bin/sail npm install popper.js --save
+ 1469  ./vendor/bin/sail npm install     window.$= window.jQuery = require('jquery');
+ 1470  ./vendor/bin/sail npm install    jquery
+ 1471  ./vendor/bin/sail npm run watch
+ 1472  ./vendor/bin/sail npm install jquery --save
+ 1473  ./vendor/bin/sail npm run watch
+ 1474  ./vendor/bin/sail npm run dev
+ 1475  ./vendor/bin/sail npm run watch
+ 1476  ./vendor/bin/sail composer update
+ 1477  ./vendor/bin/sail npm install --save jquery
+ 1478  ./vendor/bin/sail npm run watch
+ 1479  ./vendor/bin/sail npm install jquery-ui --save-dev
+ 1480  ./vendor/bin/sail 
+ 1481  ./vendor/bin/sail npm install jquery-ui --save-dev
+ 1482  ./vendor/bin/sail npm run watch
+ 1483  ./vendor/bin/sail npm run dev
+ 1484  ./vendor/bin/sail npm install jquery-ui --save-dev
+ 1485  ./vendor/bin/sail npm run dev
+ 1486  ./vendor/bin/sail npm install jquery --save-dev
+ 1487  ./vendor/bin/sail npm run dev
+ 1488  ./vendor/bin/sail npm run watch
+ 1489  ./vendor/bin/sail npm install jquery --save
+ 1490  ./vendor/bin/sail npm run prod
+ 1491  ./vendor/bin/sail npm run watch
+ 1492  ./vendor/bin/sail npm run dev
+ 1493  ./vendor/bin/sail composer update
+ 1494  ./vendor/bin/sail php artisan make:model Flight
+ 1495  ./vendor/bin/sail npm run watch
+ 1584  ./vendor/bin/sail npm install sweetalert2
+ 1585  ./vendor/bin/sail npm install --save sweetalert2
+ 1589  ./vendor/bin/sail npm update
+ 1590  ./vendor/bin/sail npm audit
+ 1593  ./vendor/bin/sail npm run watch
+ 1594  ./vendor/bin/sail npm run dev
+ 1595  ./vendor/bin/sail npm run watch
+ 1610  ./vendor/bin/sail up
+ 1613  ./vendor/bin/sail up
+ 1614  ./vendor/bin/sail up --build
+ 1615  ./vendor/bin/sail --help
+ 1616  ./vendor/bin/sail up --build --port=8080 
+ 1618  ./vendor/bin/sail up --build --no-cache0 
+ 1619  ./vendor/bin/sail up --build --no-cache
+ 1620  ./vendor/bin/sail up --build
+ 1621  ./vendor/bin/sail down
+ 1622  ./vendor/bin/sail up --build
+ 1623  ./vendor/bin/sail down
+ 1624  ./vendor/bin/sail down -v
+ 1625  ./vendor/bin/sail up --build
+ 1626  ./vendor/bin/sail down
+ 1627  ./vendor/bin/sail down -v
+ 1628  sail build --no-cache
+ 1629  ./vendor/bin/sail  build --no-cache
+ 1630  ./vendor/bin/sail   up 
+ 1631  ./vendor/bin/sail   up --build
+ 1768  ./vendor/bin/sail npm run watch
+ 1769  ./vendor/bin/sail npm run dev
+ 1770  ./vendor/bin/sail npm run watch
+ 1771  ./vendor/bin/sail php artisan make:model Product -mcr
+ 1773  ./vendor/bin/sail php artisan migrate
+ 1778  ./vendor/bin/sail php artisan config:cache
+ 1779  ./vendor/bin/sail php artisan storage:link
+ 1784  ./vendor/bin/sail php artisan make:migration add_image_path_to_products_table
+ 1785  ./vendor/bin/sail php artisan migrate
+ 1787  ./vendor/bin/sail php artisan storage:link
+ 1797  ./vendor/bin/sail php artisan make:request StoreProductRequest
+ 1804  ./vendor/bin/sail php artisan config:cache
+ 1812  ./vendor/bin/sail php artisan config:cache
+ 1827  ./vendor/bin/sail php artisan config:cache
+ 1848  ./vendor/bin/sail php artisan make:model ProductCategory -m
+ 1849  ./vendor/bin/sail php artisan migrate
+ 1850  ./vendor/bin/sail php artisan migrate:rollback
+ 1851  ./vendor/bin/sail php artisan migrate:rollback
+ 1852  ./vendor/bin/sail php artisan migrate
+ 1853  ./vendor/bin/sail php artisan migrate:rollback
+ 1854  ./vendor/bin/sail php artisan migrate
+ 1855  ./vendor/bin/sail php artisan migrate:rollback
+ 1856  ./vendor/bin/sail php artisan migrate
+ 1857  ./vendor/bin/sail php artisan tinker
+ 1862  ./vendor/bin/sail php artisan make:seeder ProductCategorySeeder
+ 1863  ./vendor/bin/sail php artisan db:seed
+ 1889  ./vendor/bin/sail npm run dev
+ 1890  ./vendor/bin/sail npm run watch
+ 1891  ./vendor/bin/sail npm run dev
+ 1892  ./vendor/bin/sail npm run watch
+ 1893  ./vendor/bin/sail npm run dev
+ 1894  ./vendor/bin/sail npm install
+ 1895  ./vendor/bin/sail npm run dev
+ 1896  ./vendor/bin/sail npm run watch
+ 1897  ./vendor/bin/sail npm run dev
+ 1898  ./vendor/bin/sail npm run watch
+ 1902  ./vendor/bin/sail php artisan config:cache
+ 1914  ./vendor/bin/sail php artisan config:case
+ 1915  ./vendor/bin/sail php artisan config:cache
+ 1916  ./vendor/bin/sail php artisan rout:clear
+ 1917  ./vendor/bin/sail php artisan rout:cache
+ 1918  ./vendor/bin/sail php artisan route:list 
+ 1920  ./vendor/bin/sail php artisan config:cache
+ 1921  ./vendor/bin/sail php artisan route:cache
+ 1995  history  | grep sail
+ 1996  history | grep sail

@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class UserController extends Controller
@@ -89,6 +90,7 @@ class UserController extends Controller
     {
         try {
             $user->delete();
+            Session::flash('status', __('shop.user.status.delete.success'));
             return response()->json([
                 'status' => 'success'
             ]);
