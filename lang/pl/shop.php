@@ -16,6 +16,7 @@ return [
     'button' => [
         'save' => 'Zapisz',
         'add' => 'Dodaj',
+        'add_to_cart' => 'Dodaj do koszyka',
     ],
     'user' => [
         'index_title' => 'Lista użytkowników',
