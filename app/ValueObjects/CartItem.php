@@ -34,6 +34,15 @@ class CartItem
         return $this->productId;
     }
 
+        /**
+     * Get the value of sum
+     */
+    public function getSum(): float
+    {
+        return $this->price * $this->quantity;
+    }
+
+
     /**
      * Get the value of name
      */
