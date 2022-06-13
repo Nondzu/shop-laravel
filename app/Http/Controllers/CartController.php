@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use PDO;
 use App\Models\Product;
 use Illuminate\View\View;
-use App\Dtos\Cart\CartDto;
-use App\Dtos\Cart\CartItemDto;
+use App\ValueObjects\Cart;
+use App\ValueObjects\CartItem;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -23,7 +23,7 @@ class CartController extends Controller
      */
     public function index(): View
     {
-        dd(Session::get('cart', new CartDto()));
+        dd(Session::get('cart', new Cart()));
         return view('home');
     }
 
@@ -35,34 +35,12 @@ class CartController extends Controller
      */
     public function store(Product $product): JsonResponse
     {
-        $cart = Session::get('cart', new CartDto());
+        $cart = Session::get('cart', new Cart());
 
-        $items = $cart->getItems();
-        if (Arr::exists($items, $product->id)) {
-            $items[$product->id]->incrementQuantity();
-        } else {
-            $items[$product->id] = $this->getCartItemDto($product);
-        }
-
-        $cart->setItems($items);
-        $cart->incrementTotalQuantity();
-        $cart->incrementTotalSum($product->price);
-
-        Session::put('cart', $cart);
+        Session::put('cart', $cart->addItem($product));
 
         return response()->json([
             'status' => 'success'
         ]);
-    }
-
-    public function getCartItemDto(Product $product): CartItemDto
-    {
-        $cartItemDto = new CartItemDto();
-        $cartItemDto->setProductId($product->id);
-        $cartItemDto->setName($product->name);
-        $cartItemDto->setPrice($product->price);
-        $cartItemDto->setImagePath($product->image_path);
-        $cartItemDto->setQuantity(1);
-        return $cartItemDto;
     }
 }
