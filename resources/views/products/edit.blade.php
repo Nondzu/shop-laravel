@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('products.update', ['product' => $product->id]) }}"
                             enctype="multipart/form-data">
-                            {{ method_field('PUT')}}
+                            {{ method_field('PUT') }}
                             @csrf
 
                             <div class="row mb-3">
@@ -123,8 +123,10 @@
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-6">
                                     @if (!is_null($product->image_path))
-                                        <img src="{{ asset('storage/' . $product->image_path) }}"
-                                            class="img-fluid mx-auto d-block" alt="Product image">
+                                        <a href="{{ route('products.downloadImage', $product->id)}}">
+                                            <img src="{{ asset('storage/' . $product->image_path) }}"
+                                                class="img-fluid mx-auto d-block" alt="Product image">
+                                        </a>
                                     @endif
                                 </div>
                             </div>

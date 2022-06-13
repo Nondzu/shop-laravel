@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\ProductCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UpsertProductRequest;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ProductController extends Controller
 {
@@ -35,7 +38,7 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        
+
         return view("products.create", [
             'categories' => ProductCategory::all()
         ]);
@@ -96,15 +99,24 @@ class ProductController extends Controller
      */
     public function update(UpsertProductRequest $request, Product $product): RedirectResponse
     {
+        $oldImagePath = $product->image_path;
+
         $product->fill($request->validated());
 
         if ($request->hasFile('image')) {
+
+            if (Storage::exists($oldImagePath)) {
+                Storage::delete($oldImagePath);
+            }
+
             $product->image_path = $request->file('image')->store('products');
         }
 
         $product->save();
         return redirect(route('products.index'))->with('status', __('shop.product.status.update.success'));
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -126,5 +138,22 @@ class ProductController extends Controller
                 'message' => 'Wystapił bład',
             ])->setStatusCode(500);
         }
+    }
+
+    /**
+     * Download image the specified resource in storage.
+     *
+     * @param  UpsertProductRequest  $request
+     * @param  Product  $product
+     * @return RedirectResponse
+     */
+    public function downloadImage(Product $product): RedirectResponse|StreamedResponse
+    {
+
+        if (Storage::exists($product->image_path)) {
+            return Storage::download($product->image_path);
+        }
+
+        return Redirect::back();
     }
 }

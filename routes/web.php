@@ -25,6 +25,7 @@ Route::get('/hello', [HelloWordlController::class, 'show']);
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware(['can:isAdmin'])->group(function () {
+        Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
         Route::resource('products', ProductController::class);
 
         // users
