@@ -120,10 +120,10 @@
                             </div>
 
                             <br>
-                            <div class="form-group row justify-content-center">
-                                <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="offset-md-4 col-md-6">
                                     @if (!is_null($product->image_path))
-                                        <a href="{{ route('products.downloadImage', $product->id)}}">
+                                        <a href="{{ route('products.downloadImage', $product->id) }}">
                                             <img src="{{ asset('storage/' . $product->image_path) }}"
                                                 class="img-fluid mx-auto d-block" alt="Product image">
                                         </a>
@@ -131,8 +131,8 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                            <div class="form-group row mb-0 float-end">
+                                <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('shop.button.save') }}
                                     </button>
