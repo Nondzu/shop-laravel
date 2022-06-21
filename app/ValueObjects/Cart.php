@@ -25,6 +25,17 @@ class Cart
     {
         return $this->items;
     }
+
+    /**
+     * Get the value of sum
+     */
+    public function getSum(): float
+    {
+        return $this->items->sum(function ($item) {
+            return $item->getSum();
+        });
+    }
+
     public function isProductIdSameAsItemProduct(Product $product): Closure
     {
         return function ($item) use ($product) {
@@ -32,13 +43,14 @@ class Cart
         };
     }
 
+
     public function addItem(Product $product): Cart
     {
         $items = $this->items;
         $item = $items->first($this->isProductIdSameAsItemProduct($product));
 
         if (!is_null($item)) {
-            $items = $items->reject($this->isProductIdSameAsItemProduct($product));
+            $items = $this->removeItemFromCollection($items, $product);
             $newItem = $item->addQuantity($product);
         } else {
             $newItem = new CartItem($product);
@@ -46,5 +58,16 @@ class Cart
 
         $items->add($newItem);
         return new Cart($items);
+    }
+
+    public function removeItem(Product $product): Cart
+    {
+        $items = $this->removeItemFromCollection($this->items, $product);
+        return new Cart($items);
+    }
+
+    private function removeItemFromCollection(Collection $items, Product $product): Collection
+    {
+        return $items->reject($this->isProductIdSameAsItemProduct($product));
     }
 }

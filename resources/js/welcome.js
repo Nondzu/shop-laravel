@@ -31,7 +31,7 @@ $(function () {
                     cancelButtonText: '<i class="fa-solid fa-bag-shopping"></i> Kontynuuj zakupy'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        alert('OK');
+                        window.location = WELCOME_DATA.listCart;
                     }
                 })
             })
@@ -64,13 +64,17 @@ $(function () {
                         '                        </div>' +
                         '                        <div class="card-body text-center">' +
                         '                            <h4 class="card-title">' +
-                        '                                <a href="product.html" class=" font-weight-bold text-dark text-uppercase small">' +
-                        product.name +
+                        '                                <a href="product.html" class=" font-weight-bold text-dark text-uppercase small">' + product.name +
                         '                                </a>' +
                         '                            </h4>' +
                         '                            <h5 class="card-price small">' +
                         '                                <i> PLN ' + product.price + '</i>' +
                         '                            </h5>' +
+                        `                            <button class="btn btn-success btn-sm add-cart-button"` + getDisabled() +
+                        `                               data-id="product->id " @guest disabled @endguest><i` +
+                        `                                   class="fa-solid fa-cart-plus"></i>` +
+                        `                                   Dodaj do koszyka` +
+                        `                            </button>` +
                         '                        </div>' +
                         '                    </div>' +
                         '                </div>';
@@ -84,5 +88,11 @@ $(function () {
             return WELCOME_DATA.storagePath + product.image_path;
         }
         return WELCOME_DATA.defaultImagePath
+    }
+
+    function getDisabled() {
+        if (WELCOME_DATA.isGuest) {
+            return 'disabled';
+        }
     }
 });

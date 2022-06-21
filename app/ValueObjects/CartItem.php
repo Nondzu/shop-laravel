@@ -34,7 +34,7 @@ class CartItem
         return $this->productId;
     }
 
-        /**
+    /**
      * Get the value of sum
      */
     public function getSum(): float
@@ -65,6 +65,14 @@ class CartItem
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+        /**
+     * Get the value of imagePath
+     */
+    public function getImage(): String
+    {
+        return !is_null($this->imagePath) ? asset('storage/'. $this->imagePath) : config("shop.defaultImage");
     }
 
     /**

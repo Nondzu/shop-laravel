@@ -142,6 +142,8 @@
     storagePath : '{{ asset('storage/') }}/',
     defaultImagePath : '{{ $defaultImage }}',
     addToCart : '{{ url('cart') }}/',
+    listCart : '{{ url('cart') }}',
+    isGuest : '{{ $isGuest }}',
     }
 @endsection
 

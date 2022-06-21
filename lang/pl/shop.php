@@ -17,6 +17,8 @@ return [
         'save' => 'Zapisz',
         'add' => 'Dodaj',
         'add_to_cart' => 'Dodaj do koszyka',
+        'continue_shopping' => 'Wróć do sklepu',
+        'payment' => 'Zapłać',
     ],
     'user' => [
         'index_title' => 'Lista użytkowników',
@@ -49,6 +51,8 @@ return [
             'price' => 'Cena',
             'image' => 'Grafika',
             'category' => 'Kategoria',
+            'sum' => 'Suma',
+            'sum_order' => 'Suma zamówienia',
         ]
     ]
 ];

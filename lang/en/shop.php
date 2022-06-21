@@ -17,6 +17,8 @@ return [
         'save' => 'Save',
         'add' => 'Add',
         'add_to_cart' => 'Add to cart',
+        'continue_shopping' => 'Continue Shopping',
+        'payment' => 'Payment',
     ],
     'user' => [
         'index_title' => 'List users',
@@ -49,6 +51,8 @@ return [
             'price' => 'Price',
             'image' => 'Image',
             'category' => 'Category',
+            'sum' => 'Total',
+            'sum_order' => 'Order Total',
         ]
     ]
 ];
