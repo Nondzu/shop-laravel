@@ -22,6 +22,14 @@ return [
     ],
     'user' => [
         'index_title' => 'List users',
+        'edit_title' => 'Edit user: :name',
+        'fields' => [
+            'city' => 'Cityt',
+            'zip_code' => 'Zip code',
+            'street' => 'Street',
+            'street_no' => 'Street number',
+            'home_no' => 'Flat number',
+        ],
         'status' => [
             'delete' => [
                 'success' => 'User deleted!'

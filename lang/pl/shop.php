@@ -22,6 +22,14 @@ return [
     ],
     'user' => [
         'index_title' => 'Lista użytkowników',
+        'edit_title' => 'Edycja użytkownika: :name',
+        'fields' => [
+            'city' => 'Miasto',
+            'zip_code' => 'Kod pocztowy',
+            'street' => 'Ulica',
+            'street_no' => 'Numer ulicy',
+            'home_no' => 'Numer mieszkania',
+        ],
         'status' => [
             'delete' => [
                 'success' => 'Użytkownik usunięty!'

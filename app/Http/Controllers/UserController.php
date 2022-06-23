@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\Address;
 // use App\Models\Flight;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UpdateUserRequest;
 
 
 class UserController extends Controller
@@ -60,24 +64,38 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User $user
+     * @return View
      */
-    public function edit($id)
+    public function edit(User $user): View
     {
-        //
+        return view('users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  UpdateUserRequest  $request
+     * @param  User  $user
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        //
+        // $user->save();
+        $addressValidated = $request->validated()['address'];
+
+        if ($user->hasAddress()) {
+            $address = $user->address;
+            $address->fill($addressValidated);
+        } else {
+            $address = new Address($addressValidated);
+        }
+
+        $user->address()->save($address);
+        // $user->address()->save(new Address($addressValidated));
+        return redirect(route('users.index'))->with('status', __('shop.product.status.update.success'));
     }
 
     /**
@@ -94,12 +112,11 @@ class UserController extends Controller
             return response()->json([
                 'status' => 'success'
             ]);
-    
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Wystapił bład',
-            ])->setStatusCode(500) ;
+            ])->setStatusCode(500);
         }
     }
 }
