@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HelloWordlController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/products/{product}/download', [ProductController::class, 'downloadImage'])->name('products.downloadImage');
         Route::resource('products', ProductController::class);
 
-
-
         // users
-        // Route::get('/users/list', [UserController::class, 'index']);
-        // Route::delete('/users/{user}', [UserController::class, 'destroy']);
-
         Route::resource('users', UserController::class)->only([
             'index',  'edit', 'update', 'destroy'
         ]);
@@ -42,7 +38,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');;
+    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+    //orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
