@@ -47,7 +47,7 @@
                                                     </div>
 
                                                     <div class="cart_info_col">
-                                                        <button class="btn btn-danger btn-sm delete"
+                                                        <button type="button" class="btn btn-danger btn-sm delete"
                                                             data-id="{{ $item->getProductId() }}"><i
                                                                 class="fa-regular fa-trash-can"></i></button>
                                                     </div>
@@ -67,8 +67,8 @@
                                     <a href="/" type="button"
                                         class="button cart_button_clear">{{ __('shop.button.continue_shopping') }}</a>
 
-                                    <button type="submit"
-                                        class="button cart_button_checkout">{{ __('shop.button.payment') }}</button>
+                                    <button type="submit" class="button cart_button_checkout"
+                                        {{ !$cart->hasItems() ? 'disabled' : '' }}>{{ __('shop.button.payment') }}</button>
                                 </div>
                             </form>
                         </div>

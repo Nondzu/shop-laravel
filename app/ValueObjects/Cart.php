@@ -26,6 +26,11 @@ class Cart
         return $this->items;
     }
 
+    public function hasItems(): bool 
+    {
+        return $this->items->isNotEmpty();
+    }
+
     /**
      * Get the value of sum
      */
@@ -33,6 +38,16 @@ class Cart
     {
         return $this->items->sum(function ($item) {
             return $item->getSum();
+        });
+    }
+
+    /**
+     * Get the value of quantity
+     */
+    public function getQuantity(): int
+    {
+        return $this->items->sum(function ($item) {
+            return $item->getQuantity();
         });
     }
 
