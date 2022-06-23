@@ -19,8 +19,7 @@
                                 <div class="col-md-6">
                                     <input id="city" type="text"
                                         class="form-control @error('city') is-invalid @enderror" name="address[city]"
-                                        value="@if ($user->hasAddress()) {{ $user->address->city }} @endif"
-                                        required autocomplete="city" autofocus>
+                                        value="{{ $user?->address?->city }} " required autocomplete="city" autofocus>
 
                                     @error('city')
                                         <span class="invalid-feedback" role="alert">
@@ -37,9 +36,8 @@
                                 <div class="col-md-6">
                                     <input id="zip_code" type="text"
                                         class="form-control @error('zip_code') is-invalid @enderror"
-                                        name="address[zip_code]"
-                                        value="@if ($user->hasAddress()) {{ $user->address->zip_code }} @endif"
-                                        required autocomplete="zip_code" autofocus>
+                                        name="address[zip_code]" value="{{ $user?->address?->zip_code }} " required
+                                        autocomplete="zip_code" autofocus>
 
                                     @error('zip_code')
                                         <span class="invalid-feedback" role="alert">
@@ -56,8 +54,7 @@
                                 <div class="col-md-6">
                                     <input id="street" type="text"
                                         class="form-control @error('street') is-invalid @enderror" name="address[street]"
-                                        value="@if ($user->hasAddress()) {{ $user->address->street }} @endif"
-                                        required autocomplete="street" autofocus>
+                                        value="{{ $user?->address?->street }} " required autocomplete="street" autofocus>
 
                                     @error('street')
                                         <span class="invalid-feedback" role="alert">
@@ -74,9 +71,8 @@
                                 <div class="col-md-6">
                                     <input id="street_no" type="text"
                                         class="form-control @error('street_no') is-invalid @enderror"
-                                        name="address[street_no]"
-                                        value="@if ($user->hasAddress()) {{ $user->address->street_no }} @endif"
-                                        required autocomplete="street_no" autofocus>
+                                        name="address[street_no]" value="{{ $user?->address?->street_no }} " required
+                                        autocomplete="street_no" autofocus>
 
                                     @error('street_no')
                                         <span class="invalid-feedback" role="alert">
@@ -93,8 +89,8 @@
                                 <div class="col-md-6">
                                     <input id="home_no" type="text"
                                         class="form-control @error('street_no') is-invalid @enderror"
-                                        name="address[home_no]"value="@if ($user->hasAddress()) {{ $user->address->home_no }} @endif"
-                                        required autocomplete="home_no" autofocus>
+                                        name="address[home_no]"value="{{ $user?->address?->home_no }} " required
+                                        autocomplete="home_no" autofocus>
 
                                     @error('home_no')
                                         <span class="invalid-feedback" role="alert">
